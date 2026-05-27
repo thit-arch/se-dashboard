@@ -671,7 +671,26 @@
 </style>
 </head>
 <body>
-
+<script>
+  // Simple visual password protection for prototypes
+  const userPass = prompt("Please enter the password to view this prototype:");
+  
+  // Change "backbase2026" to whatever password you want
+  if (userPass !== "backbase2026") {
+    // If they get it wrong, wipe the screen and show an error
+    document.body.innerHTML = `
+      <div style="display:flex; justify-content:center; align-items:center; height:100vh; background-color:#1A1916; color:#F5F4F1; font-family:sans-serif;">
+        <div style="text-align:center;">
+          <h1 style="color:#E24B4A;">Access Denied</h1>
+          <p>You must have the correct password to view this prototype.</p>
+          <button onclick="location.reload()" style="margin-top:20px; padding:10px 20px; cursor:pointer;">Try Again</button>
+        </div>
+      </div>
+    `;
+    // Stop the rest of the page from loading
+    window.stop();
+  }
+</script>
 <div class="app">
   <!-- ── Sidebar ── -->
   <nav class="sidebar">
