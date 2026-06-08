@@ -202,6 +202,115 @@
   .win-bar-wl  { font-size: 10px; color: var(--color-text-tertiary); white-space: nowrap; flex-shrink: 0; }
   .gap-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; background: #FCEBEB; color: #791F1F; }
 
+  /* ── Team Load matrix ── */
+  .tl-matrix-wrap { overflow-x: auto; }
+  .tl-matrix { border-collapse: collapse; width: 100%; font-size: 11px; }
+  .tl-matrix th { padding: 0 6px 10px; text-align: center; border-bottom: 0.5px solid var(--color-border-secondary); vertical-align: bottom; min-width: 76px; }
+  .tl-matrix th.tl-row-head { text-align: left; padding-left: 0; min-width: 180px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-tertiary); }
+  .tl-matrix th.tl-ses-col { min-width: 48px; font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; color: var(--color-text-tertiary); border-left: 1px solid var(--color-border-secondary); }
+  .tl-matrix td { padding: 5px 6px; border-bottom: 0.5px solid var(--color-border-tertiary); text-align: center; vertical-align: middle; }
+  .tl-matrix td.tl-row-head { text-align: left; padding-left: 0; font-size: 11px; font-weight: 500; white-space: nowrap; }
+  .tl-matrix td.tl-ses-col { border-left: 1px solid var(--color-border-secondary); font-weight: 700; font-size: 12px; }
+  .tl-matrix tr:last-child td { border-bottom: none; }
+  .tl-matrix tr.tl-footer-row td { border-top: 1px solid var(--color-border-secondary); padding-top: 8px; }
+  .tl-matrix tr.tl-stress-row td { padding-top: 2px; padding-bottom: 8px; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  /* Stress column tinting */
+  .tl-matrix td.tl-col-risk, .tl-matrix th.tl-col-risk { background: rgba(255,193,7,.05); }
+  .tl-matrix td.tl-col-over, .tl-matrix th.tl-col-over { background: rgba(244,67,54,.06); }
+  /* Heat cells (summed effort per deal per SE) */
+  .tl-heat { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 24px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .tl-h-0    { color: var(--color-text-tertiary); font-weight: 400; font-size: 11px; }
+  .tl-h-low  { background: #D6EBCE; color: #2D5E1A; }
+  .tl-h-mid  { background: #FFF0B3; color: #7A5500; }
+  .tl-h-high { background: #FDBF8C; color: #7A3200; }
+  .tl-h-crit { background: #F9897E; color: #7A1A1A; }
+  /* Person column header */
+  .tl-col-head { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .tl-col-avatar { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #fff; margin-bottom: 1px; }
+  .tl-col-name { font-size: 10px; font-weight: 700; color: var(--color-text-primary); }
+  .tl-cap-bar-wrap { width: 44px; height: 3px; border-radius: 2px; background: var(--color-border-secondary); overflow: hidden; margin: 1px 0; }
+  .tl-cap-bar { height: 100%; border-radius: 2px; }
+  .tl-stress-badge { font-size: 8px; font-weight: 700; padding: 1px 5px; border-radius: 5px; text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  /* Total pills */
+  .tl-total-pill { display: inline-flex; flex-direction: column; align-items: center; padding: 3px 8px; border-radius: 6px; font-size: 13px; font-weight: 800; line-height: 1; }
+  .tl-pts-label { font-size: 8px; font-weight: 500; opacity: .65; margin-top: 2px; }
+  .tl-p-avail { background: #EBF5E0; color: #27500A; }
+  .tl-p-bal   { background: #D6F0E4; color: #1A6B3C; }
+  .tl-p-risk  { background: #FFF3D0; color: #7A5500; }
+  .tl-p-over  { background: #FDEAEA; color: #8B1C1C; }
+  /* Stress summary chips */
+  .tl-stress-summary { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .tl-stress-chip { display: flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid transparent; }
+  .tl-stress-chip .tl-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .tl-sc-avail { background: #EBF5E0; color: #27500A; border-color: #B7DFB0; }
+  .tl-sc-avail .tl-dot { background: #4CAF50; }
+  .tl-sc-bal   { background: #D6F0E4; color: #1A6B3C; border-color: #8ECFAE; }
+  .tl-sc-bal   .tl-dot { background: #2E9C60; }
+  .tl-sc-risk  { background: #FFF3D0; color: #7A5500; border-color: #F0C040; }
+  .tl-sc-risk  .tl-dot { background: #FFC107; }
+  .tl-sc-over  { background: #FDEAEA; color: #8B1C1C; border-color: #F5A09A; }
+  .tl-sc-over  .tl-dot { background: #F44336; }
+  /* Capacity legend */
+  .tl-cap-legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .tl-cap-legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: var(--color-text-secondary); }
+  .tl-cap-legend-bar { width: 20px; height: 4px; border-radius: 2px; }
+  /* Account grouping rows */
+  .tl-acct-row td { background: var(--color-background-secondary); padding: 7px 0 4px; border-bottom: none; border-top: 1px solid var(--color-border-secondary); }
+  .tl-acct-row:first-child td { border-top: none; }
+  .tl-acct-name { font-size: 11px; font-weight: 700; color: var(--color-text-primary); }
+  .tl-deal-count-badge { display: inline-block; padding: 1px 6px; border-radius: 8px; font-size: 9px; font-weight: 600; background: var(--color-border-secondary); color: var(--color-text-tertiary); margin-left: 6px; vertical-align: middle; }
+  .tl-deal-row td.tl-row-head { padding-left: 14px; font-size: 11px; color: var(--color-text-secondary); font-weight: 400; }
+  .tl-deal-name-text::before { content: '· '; color: var(--color-text-tertiary); margin-right: 2px; }
+  /* SE confidence badge per deal row */
+  .tl-se-conf { display: inline-flex; align-items: center; gap: 3px; padding: 1px 6px; border-radius: 999px; font-size: 9px; font-weight: 700; margin-left: 7px; vertical-align: middle; white-space: nowrap; }
+  .tl-se-conf.sc-good { background: #EAF3DE; color: #27500A; }
+  .tl-se-conf.sc-mid  { background: #FAEEDA; color: #633806; }
+  .tl-se-conf.sc-low  { background: #FCEBEB; color: #791F1F; }
+  .tl-se-conf.sc-none { background: var(--color-background-secondary); color: var(--color-text-tertiary); }
+  /* Risk deal row highlight: low SE conf + high effort */
+  .tl-deal-row.tl-risk-deal td { background: #FFF8F0; }
+  .tl-deal-row.tl-risk-deal td.tl-row-head { border-left: 3px solid #F57C00; padding-left: 11px; }
+  .tl-deal-row.tl-risk-deal:hover td { filter: brightness(.97); }
+  /* Risk callout banner */
+  .tl-risk-callout { margin-bottom: 14px; padding: 10px 14px; border-radius: var(--border-radius-md); background: #FFF3E0; border: 1px solid #FFB74D; display: flex; flex-direction: column; gap: 6px; }
+  .tl-risk-callout-head { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 700; color: #E65100; }
+  .tl-risk-callout-items { display: flex; flex-wrap: wrap; gap: 5px; }
+  .tl-risk-item { display: inline-flex; align-items: center; gap: 5px; padding: 3px 8px 3px 6px; border-radius: 6px; background: white; border: 0.5px solid #FFB74D; font-size: 11px; color: var(--color-text-primary); }
+  .tl-risk-item-conf { font-size: 10px; font-weight: 700; color: #C62828; }
+  .tl-risk-item-eff  { font-size: 10px; color: var(--color-text-tertiary); }
+
+  /* ── ARR Responsibility matrix ── */
+  .arr-matrix-wrap { overflow-x: auto; }
+  .arr-matrix { border-collapse: collapse; width: 100%; font-size: 11px; }
+  .arr-matrix th { padding: 4px 8px 8px; text-align: center; border-bottom: 1px solid var(--color-border-secondary); font-size: 10px; font-weight: 600; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .04em; white-space: nowrap; }
+  .arr-matrix th.arr-row-head { text-align: left; padding-left: 0; min-width: 150px; }
+  .arr-matrix th.arr-total-col { border-left: 1px solid var(--color-border-secondary); }
+  .arr-matrix td { padding: 7px 8px; border-bottom: 0.5px solid var(--color-border-tertiary); text-align: center; vertical-align: middle; }
+  .arr-matrix td.arr-row-head { text-align: left; padding-left: 0; }
+  .arr-matrix td.arr-total-col { border-left: 1px solid var(--color-border-secondary); }
+  .arr-matrix tr.arr-footer-row td { border-top: 1px solid var(--color-border-secondary); border-bottom: none; padding-top: 8px; background: var(--color-background-secondary); }
+  .arr-cell { display: inline-flex; align-items: center; justify-content: center; min-width: 56px; padding: 3px 8px; border-radius: 5px; font-size: 11px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .arr-total-val { display: inline-flex; align-items: center; justify-content: center; min-width: 60px; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .arr-h-0  { color: var(--color-text-tertiary); font-weight: 400; }
+  .arr-h-xs { background: #EDF4FF; color: #2B5EA7; }
+  .arr-h-sm { background: #C5DCFF; color: #1A4A8C; }
+  .arr-h-md { background: #3B7DD8; color: #fff; }
+  .arr-h-lg { background: #1A56C4; color: #fff; }
+  .arr-share-bar-wrap { width: 100%; height: 3px; border-radius: 2px; background: var(--color-border-secondary); overflow: hidden; margin-top: 4px; }
+  .arr-share-bar { height: 100%; border-radius: 2px; background: #3B7DD8; }
+  .arr-pct-label { font-size: 9px; font-weight: 500; color: var(--color-text-tertiary); margin-top: 2px; }
+  .arr-matrix tr.arr-se-row td { background: var(--color-background-secondary); border-top: 1px solid var(--color-border-secondary); border-bottom: none; }
+  .arr-matrix tr.arr-deal-row td { border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .arr-matrix tr.arr-deal-row:last-of-type td { border-bottom: none; }
+  td.arr-deal-name { padding-left: 12px; font-size: 11px; color: var(--color-text-secondary); }
+  .arr-deal-bullet { color: var(--color-text-tertiary); margin-right: 5px; }
+  .arr-stage-pill { display: inline-flex; align-items: center; padding: 1px 5px; border-radius: 999px; font-size: 9px; font-weight: 600; margin-left: 5px; vertical-align: middle; }
+  .arr-sp-commit { background: #E8F5E9; color: #1B5E20; }
+  .arr-sp-best   { background: #E3F2FD; color: #0D47A1; }
+  .arr-sp-back   { background: var(--color-background-secondary); color: var(--color-text-tertiary); border: 0.5px solid var(--color-border-secondary); }
+  .arr-shared-badge { display: inline-flex; align-items: center; padding: 1px 5px; border-radius: 999px; font-size: 9px; font-weight: 600; background: #EDF4FF; color: #2B5EA7; margin-left: 4px; vertical-align: middle; }
+  .arr-toggle { margin-left: auto; font-size: 9px; color: var(--color-text-tertiary); flex-shrink: 0; }
+
   /* ── RFC chips & table ── */
   .rfc-chip { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: 10px; font-weight: 600; white-space: nowrap; }
   .rfc-s-review     { background: #FAEEDA; color: #633806; }
@@ -1550,126 +1659,150 @@ const CAPACITY_CEILING = 9; // 3 opportunities × avg effort 3 = 100%
 
 const TASK_DATA = {
   // ── ANZ ──
+  // Westpac has 2 active deals; Westpac · AI Pilot is jointly covered by Dariusz + Jules
+  // NAB · Onboarding Refresh is jointly covered by Jules + Sam
   'Dariusz T.': [
-    { deal: 'Westpac · AI Pilot',        task: 'POC workshop facilitation',          effort: 4, dueDate: '2026-05-06' },
-    { deal: 'Bank Iota · Voice Banking', task: 'RFP technical response',             effort: 4, dueDate: '2026-05-12' },
-    { deal: 'Suncorp · Mortgage Origination', task: 'Deal review — stall assessment', effort: 1, dueDate: '2026-04-28' },
+    { deal: 'Westpac · AI Pilot',             task: 'POC workshop facilitation',            effort: 4, dueDate: '2026-05-06' },
+    { deal: 'Westpac · CLO Pilot',            task: 'CLO solution scoping session',         effort: 1, dueDate: '2026-05-10' },
+    { deal: 'Bank Iota · Voice Banking',      task: 'RFP technical response',               effort: 4, dueDate: '2026-05-12' },
+    { deal: 'Suncorp · Mortgage Origination', task: 'Deal review — stall assessment',       effort: 1, dueDate: '2026-04-28' },
   ],
   'Jules B.': [
-    { deal: 'NAB · Onboarding Refresh',  task: 'POC milestone 2 review',             effort: 3, dueDate: '2026-05-08' },
-    { deal: 'CommBank · SME Lending',    task: 'Business case workshop',             effort: 3, dueDate: '2026-05-15' },
-    { deal: 'Macquarie · Wealth Hub',    task: 'Qualifying call prep',               effort: 1, dueDate: '2026-04-25' },
+    { deal: 'Westpac · AI Pilot',             task: 'Architecture design review',           effort: 2, dueDate: '2026-05-10' },
+    { deal: 'Westpac · CLO Pilot',            task: 'CLO product walkthrough & scoping',    effort: 3, dueDate: '2026-05-14' },
+    { deal: 'NAB · Onboarding Refresh',       task: 'POC milestone 2 review',               effort: 3, dueDate: '2026-05-08' },
+    { deal: 'CommBank · SME Lending',         task: 'Business case workshop',               effort: 3, dueDate: '2026-05-15' },
+    { deal: 'Macquarie · Wealth Hub',         task: 'Qualifying call prep',                 effort: 1, dueDate: '2026-04-25' },
   ],
   'Sam P.': [
-    { deal: 'ANZ Bank · Mobile Refresh', task: 'Negotiation prep — pricing model',  effort: 4, dueDate: '2026-05-05' },
-    { deal: 'BNZ · Digital Banking',     task: 'RFP qualification workshop',         effort: 3, dueDate: '2026-05-13' },
-    { deal: 'Bendigo · Conversational Pilot', task: 'Initial discovery call',        effort: 1, dueDate: '2026-04-30' },
+    { deal: 'Westpac · CLO Pilot',            task: 'CLO integration technical review',     effort: 2, dueDate: '2026-05-16' },
+    { deal: 'NAB · Onboarding Refresh',       task: 'Integration environment review',       effort: 2, dueDate: '2026-05-11' },
+    { deal: 'ANZ Bank · Mobile Refresh',      task: 'Negotiation prep — pricing model',     effort: 4, dueDate: '2026-05-05' },
+    { deal: 'BNZ · Digital Banking',          task: 'RFP qualification workshop',           effort: 3, dueDate: '2026-05-13' },
+    { deal: 'Bendigo · Conversational Pilot', task: 'Initial discovery call',               effort: 1, dueDate: '2026-04-30' },
   ],
   // ── ASIA ──
+  // DBS · Digital Wealth is jointly covered by Kenji + Wei (SA support)
+  // OCBC has 2 active deals; OCBC · SME & APA jointly covered by Priya + Kenji
   'Kenji M.': [
-    { deal: 'DBS · Digital Wealth',      task: 'POC final presentation',             effort: 5, dueDate: '2026-05-06' },
-    { deal: 'DBS · Digital Wealth',      task: 'Client demo environment setup',      effort: 3, dueDate: '2026-05-09' },
-    { deal: 'BCA · Mobile Banking',      task: 'RFP technical response draft',       effort: 2, dueDate: '2026-05-14' },
-    { deal: 'DBS · Digital Wealth',      task: 'POC scope sign-off',                 effort: 2, dueDate: '2026-04-20' },
+    { deal: 'DBS · Digital Wealth',           task: 'POC final presentation',               effort: 5, dueDate: '2026-05-06' },
+    { deal: 'DBS · Digital Wealth',           task: 'Client demo environment setup',        effort: 3, dueDate: '2026-05-09' },
+    { deal: 'DBS · Digital Wealth',           task: 'POC scope sign-off',                   effort: 2, dueDate: '2026-04-20' },
+    { deal: 'OCBC · SME & APA',              task: 'APA solution architecture review',     effort: 2, dueDate: '2026-05-13' },
+    { deal: 'BCA · Mobile Banking',           task: 'RFP technical response draft',         effort: 2, dueDate: '2026-05-14' },
   ],
   'Priya S.': [
-    { deal: 'OCBC · SME & APA',        task: 'RFP submission review',              effort: 4, dueDate: '2026-05-07' },
-    { deal: 'CIMB · Onboarding',         task: 'Stall recovery plan',                effort: 2, dueDate: '2026-05-10' },
-    { deal: 'OCBC · SME & APA',        task: 'Negotiation strategy session',       effort: 2, dueDate: '2026-05-15' },
-    { deal: 'OCBC · SME & APA',        task: 'Competitor analysis',                effort: 3, dueDate: '2026-04-15' },
+    { deal: 'OCBC · SME & APA',              task: 'RFP submission review',                effort: 4, dueDate: '2026-05-07' },
+    { deal: 'OCBC · SME & APA',              task: 'Negotiation strategy session',         effort: 2, dueDate: '2026-05-15' },
+    { deal: 'OCBC · SME & APA',              task: 'Competitor analysis',                  effort: 3, dueDate: '2026-04-15' },
+    { deal: 'OCBC · Conversational Banking', task: 'Initial qualifying workshop',           effort: 2, dueDate: '2026-05-12' },
+    { deal: 'CIMB · Onboarding',             task: 'Stall recovery plan',                  effort: 2, dueDate: '2026-05-10' },
   ],
   'Wei L.': [
-    { deal: 'UOB · Retail Refresh',      task: 'Executive alignment prep',           effort: 4, dueDate: '2026-05-08' },
-    { deal: 'Bangkok Bank · Wealth',     task: 'RFP qualifying workshop',            effort: 2, dueDate: '2026-05-11' },
-    { deal: 'UOB · Retail Refresh',      task: 'Stakeholder mapping session',        effort: 2, dueDate: '2026-05-15' },
-    { deal: 'Bangkok Bank · Wealth',     task: 'Initial discovery call',             effort: 3, dueDate: '2026-04-18' },
+    { deal: 'DBS · Digital Wealth',           task: 'Architecture design advisory',         effort: 3, dueDate: '2026-05-09' },
+    { deal: 'UOB · Retail Refresh',           task: 'Executive alignment prep',             effort: 4, dueDate: '2026-05-08' },
+    { deal: 'UOB · Retail Refresh',           task: 'Stakeholder mapping session',          effort: 2, dueDate: '2026-05-15' },
+    { deal: 'Bangkok Bank · Wealth',          task: 'RFP qualifying workshop',              effort: 2, dueDate: '2026-05-11' },
+    { deal: 'Bangkok Bank · Wealth',          task: 'Initial discovery call',               effort: 3, dueDate: '2026-04-18' },
   ],
   'Ravi N.': [
-    { deal: 'Maybank · Conv Banking',    task: 'POC scoping workshop',               effort: 4, dueDate: '2026-05-09' },
-    { deal: 'Maybank · Conv Banking',    task: 'Competitive displacement strategy',  effort: 2, dueDate: '2026-05-14' },
-    { deal: 'Maybank · Conv Banking',    task: 'Solution overview demo',             effort: 2, dueDate: '2026-04-22' },
+    { deal: 'Maybank · Conv Banking',         task: 'POC scoping workshop',                 effort: 4, dueDate: '2026-05-09' },
+    { deal: 'Maybank · Conv Banking',         task: 'Competitive displacement strategy',    effort: 2, dueDate: '2026-05-14' },
+    { deal: 'Maybank · Conv Banking',         task: 'Solution overview demo',               effort: 2, dueDate: '2026-04-22' },
   ],
   // ── EMEA EU NW ──
+  // ING · APA Pilot jointly covered by Thomas + Lena (Lena providing retail integration expertise)
+  // Bank Xi · APA jointly covered by Sophie + Anna (SA-led)
   'Lena K.': [
-    { deal: 'ABN AMRO · Retail Refresh', task: 'POC milestone 3 delivery',           effort: 5, dueDate: '2026-05-05' },
-    { deal: 'ABN AMRO · Retail Refresh', task: 'Executive sponsor briefing',         effort: 3, dueDate: '2026-05-12' },
-    { deal: 'Unicredit · Wealth',        task: 'RFP architecture review',            effort: 3, dueDate: '2026-05-14' },
-    { deal: 'ABN AMRO · Retail Refresh', task: 'Requirements sign-off',              effort: 2, dueDate: '2026-04-20' },
+    { deal: 'ABN AMRO · Retail Refresh',      task: 'POC milestone 3 delivery',             effort: 5, dueDate: '2026-05-05' },
+    { deal: 'ABN AMRO · Retail Refresh',      task: 'Executive sponsor briefing',           effort: 3, dueDate: '2026-05-12' },
+    { deal: 'ABN AMRO · Retail Refresh',      task: 'Requirements sign-off',                effort: 2, dueDate: '2026-04-20' },
+    { deal: 'ING · APA Pilot',                task: 'Retail integration advisory session',  effort: 2, dueDate: '2026-05-14' },
+    { deal: 'Unicredit · Wealth',             task: 'RFP architecture review',              effort: 3, dueDate: '2026-05-14' },
   ],
   'Thomas B.': [
-    { deal: 'ING · APA Pilot',           task: 'POC scope finalisation',             effort: 5, dueDate: '2026-05-06' },
-    { deal: 'BNP · Conv Banking AI',     task: 'Stall recovery — technical review',  effort: 3, dueDate: '2026-05-11' },
-    { deal: 'ING · APA Pilot',           task: 'Integration environment setup',      effort: 2, dueDate: '2026-05-13' },
-    { deal: 'ING · APA Pilot',           task: 'Initial workshop',                   effort: 3, dueDate: '2026-04-25' },
+    { deal: 'ING · APA Pilot',                task: 'POC scope finalisation',               effort: 5, dueDate: '2026-05-06' },
+    { deal: 'ING · APA Pilot',                task: 'Integration environment setup',        effort: 2, dueDate: '2026-05-13' },
+    { deal: 'ING · APA Pilot',                task: 'Initial workshop',                     effort: 3, dueDate: '2026-04-25' },
+    { deal: 'BNP · Conv Banking AI',          task: 'Stall recovery — technical review',    effort: 3, dueDate: '2026-05-11' },
   ],
   'Sophie V.': [
-    { deal: 'Bank Gamma · Conv Banking', task: 'RFP business alignment session',     effort: 4, dueDate: '2026-05-07' },
-    { deal: 'Bank Gamma · Conv Banking', task: 'Security & compliance review',       effort: 2, dueDate: '2026-05-12' },
-    { deal: 'Bank Xi · APA',             task: 'Technical qualification workshop',   effort: 2, dueDate: '2026-05-15' },
-    { deal: 'Bank Gamma · Conv Banking', task: 'Competitor displacement analysis',   effort: 3, dueDate: '2026-04-22' },
+    { deal: 'Bank Gamma · Conv Banking',      task: 'RFP business alignment session',       effort: 4, dueDate: '2026-05-07' },
+    { deal: 'Bank Gamma · Conv Banking',      task: 'Security & compliance review',         effort: 2, dueDate: '2026-05-12' },
+    { deal: 'Bank Gamma · Conv Banking',      task: 'Competitor displacement analysis',     effort: 3, dueDate: '2026-04-22' },
+    { deal: 'Bank Xi · APA',                  task: 'Technical qualification workshop',     effort: 2, dueDate: '2026-05-15' },
   ],
   'Marc D.': [
-    { deal: 'Rabobank · SME Digital Banking',    task: 'Negotiation prep — commercial model', effort: 4, dueDate: '2026-05-08' },
-    { deal: 'Société Générale · SME',    task: 'Qualifying call & discovery',        effort: 3, dueDate: '2026-05-14' },
-    { deal: 'Rabobank · SME Digital Banking',    task: 'Proof of concept scoping',           effort: 2, dueDate: '2026-04-19' },
+    { deal: 'Rabobank · SME Digital Banking', task: 'Negotiation prep — commercial model',  effort: 4, dueDate: '2026-05-08' },
+    { deal: 'Rabobank · SME Digital Banking', task: 'Proof of concept scoping',             effort: 2, dueDate: '2026-04-19' },
+    { deal: 'Société Générale · SME',         task: 'Qualifying call & discovery',          effort: 3, dueDate: '2026-05-14' },
   ],
   'Anna P.': [
-    { deal: 'Bank Xi · APA',             task: 'APA pilot scoping workshop',         effort: 4, dueDate: '2026-05-09' },
-    { deal: 'Bank Xi · APA',             task: 'Stakeholder mapping session',        effort: 2, dueDate: '2026-05-16' },
-    { deal: 'Bank Xi · APA',             task: 'Initial solution overview',          effort: 1, dueDate: '2026-04-24' },
+    { deal: 'Bank Xi · APA',                  task: 'APA pilot scoping workshop',           effort: 4, dueDate: '2026-05-09' },
+    { deal: 'Bank Xi · APA',                  task: 'Stakeholder mapping session',          effort: 2, dueDate: '2026-05-16' },
+    { deal: 'Bank Xi · APA',                  task: 'Initial solution overview',            effort: 1, dueDate: '2026-04-24' },
   ],
   // ── NA Customers ──
+  // Bank Nu · Wealth Platform jointly covered by Jordan + Casey
+  // JPMorgan has 2 active deals; JPMorgan · Retail Digital Banking supported by Alexis
   'Jordan R.': [
-    { deal: 'JPMorgan · Retail Digital Banking', task: 'POC milestone review',               effort: 5, dueDate: '2026-05-06' },
-    { deal: 'JPMorgan · Retail Digital Banking', task: 'Solution architecture session',      effort: 2, dueDate: '2026-05-13' },
-    { deal: 'Bank Nu · Wealth Platform', task: 'Executive sponsor alignment',        effort: 2, dueDate: '2026-05-07' },
-    { deal: 'JPMorgan · Retail Digital Banking', task: 'Requirements review',                effort: 3, dueDate: '2026-04-22' },
+    { deal: 'JPMorgan · Retail Digital Banking',  task: 'POC milestone review',             effort: 5, dueDate: '2026-05-06' },
+    { deal: 'JPMorgan · Retail Digital Banking',  task: 'Solution architecture session',    effort: 2, dueDate: '2026-05-13' },
+    { deal: 'JPMorgan · Retail Digital Banking',  task: 'Requirements review',              effort: 3, dueDate: '2026-04-22' },
+    { deal: 'JPMorgan · Agents Expansion',        task: 'Agents SDK qualification call',    effort: 2, dueDate: '2026-05-09' },
+    { deal: 'Bank Nu · Wealth Platform',          task: 'Executive sponsor alignment',      effort: 2, dueDate: '2026-05-07' },
   ],
   'Alexis T.': [
-    { deal: 'Citi · SME Digital Banking',        task: 'Negotiation strategy session',       effort: 4, dueDate: '2026-05-07' },
-    { deal: 'Wells Fargo · Digital',     task: 'Stall recovery technical review',    effort: 2, dueDate: '2026-05-09' },
-    { deal: 'Citi · SME Digital Banking',        task: 'Contract technical review',          effort: 2, dueDate: '2026-05-15' },
-    { deal: 'Citi · SME Digital Banking',        task: 'Competitive analysis',               effort: 3, dueDate: '2026-04-24' },
+    { deal: 'JPMorgan · Agents Expansion',        task: 'Agents technical deep-dive',       effort: 3, dueDate: '2026-05-10' },
+    { deal: 'Citi · SME Digital Banking',         task: 'Negotiation strategy session',     effort: 4, dueDate: '2026-05-07' },
+    { deal: 'Citi · SME Digital Banking',         task: 'Contract technical review',        effort: 2, dueDate: '2026-05-15' },
+    { deal: 'Citi · SME Digital Banking',         task: 'Competitive analysis',             effort: 3, dueDate: '2026-04-24' },
+    { deal: 'Wells Fargo · Digital',              task: 'Stall recovery technical review',  effort: 2, dueDate: '2026-05-09' },
   ],
   'Morgan L.': [
-    { deal: 'Bank of America · Wealth',  task: 'POC milestone delivery',             effort: 4, dueDate: '2026-05-08' },
-    { deal: 'Bank of America · Wealth',  task: 'Architecture design session',        effort: 2, dueDate: '2026-05-13' },
-    { deal: 'PNC · SME Origination',     task: 'Qualifying discovery workshop',      effort: 2, dueDate: '2026-05-15' },
-    { deal: 'Bank of America · Wealth',  task: 'Solution scoping',                   effort: 2, dueDate: '2026-04-21' },
+    { deal: 'Bank of America · Wealth',           task: 'POC milestone delivery',           effort: 4, dueDate: '2026-05-08' },
+    { deal: 'Bank of America · Wealth',           task: 'Architecture design session',      effort: 2, dueDate: '2026-05-13' },
+    { deal: 'Bank of America · Wealth',           task: 'Solution scoping',                 effort: 2, dueDate: '2026-04-21' },
+    { deal: 'PNC · SME Origination',              task: 'Qualifying discovery workshop',    effort: 2, dueDate: '2026-05-15' },
   ],
   'Casey B.': [
-    { deal: 'Bank Nu · Wealth Platform', task: 'RFP response preparation',           effort: 4, dueDate: '2026-05-07' },
-    { deal: 'US Bancorp · Coach',        task: 'Qualifying discovery call',          effort: 3, dueDate: '2026-05-14' },
-    { deal: 'Bank Nu · Wealth Platform', task: 'Compliance framework review',        effort: 2, dueDate: '2026-04-23' },
+    { deal: 'Bank Nu · Wealth Platform',          task: 'RFP response preparation',         effort: 4, dueDate: '2026-05-07' },
+    { deal: 'Bank Nu · Wealth Platform',          task: 'Compliance framework review',      effort: 2, dueDate: '2026-04-23' },
+    { deal: 'US Bancorp · Coach',                 task: 'Qualifying discovery call',        effort: 3, dueDate: '2026-05-14' },
   ],
   'Taylor N.': [
-    { deal: 'Bank Rho · Agents',         task: 'RFP business alignment session',     effort: 3, dueDate: '2026-05-09' },
-    { deal: 'Bank Rho · Agents',         task: 'Technical scoping workshop',         effort: 3, dueDate: '2026-05-14' },
-    { deal: 'Bank Rho · Agents',         task: 'Initial solution overview',          effort: 1, dueDate: '2026-04-20' },
+    { deal: 'Bank Rho · Agents',                  task: 'RFP business alignment session',   effort: 3, dueDate: '2026-05-09' },
+    { deal: 'Bank Rho · Agents',                  task: 'Technical scoping workshop',       effort: 3, dueDate: '2026-05-14' },
+    { deal: 'Bank Rho · Agents',                  task: 'Initial solution overview',        effort: 1, dueDate: '2026-04-20' },
   ],
   // ── NA New Logos ──
+  // Regions Bank · Onboarding jointly covered by Riley + Quinn
+  // KeyBank has 2 active deals; KeyBank · Digital Banking also supported by Riley
   'Riley K.': [
-    { deal: 'Truist · Conv Banking',     task: 'RFP negotiation support',            effort: 4, dueDate: '2026-05-05' },
-    { deal: 'Regions Bank · Onboarding', task: 'POC environment setup',              effort: 3, dueDate: '2026-05-07' },
-    { deal: 'Regions Bank · Onboarding', task: 'Client kickoff workshop',            effort: 3, dueDate: '2026-05-14' },
-    { deal: 'Truist · Conv Banking',     task: 'Architecture walkthrough',           effort: 2, dueDate: '2026-04-28' },
+    { deal: 'Truist · Conv Banking',              task: 'RFP negotiation support',          effort: 4, dueDate: '2026-05-05' },
+    { deal: 'Truist · Conv Banking',              task: 'Architecture walkthrough',         effort: 2, dueDate: '2026-04-28' },
+    { deal: 'Regions Bank · Onboarding',          task: 'POC environment setup',            effort: 3, dueDate: '2026-05-07' },
+    { deal: 'Regions Bank · Onboarding',          task: 'Client kickoff workshop',          effort: 3, dueDate: '2026-05-14' },
+    { deal: 'KeyBank · Digital Banking',          task: 'Conv Banking integration review',  effort: 2, dueDate: '2026-05-12' },
   ],
   'Devon S.': [
-    { deal: 'KeyBank · Digital Banking', task: 'POC milestone 1 delivery',           effort: 5, dueDate: '2026-05-06' },
-    { deal: 'Citizens · SME Origination',task: 'Stall recovery action plan',         effort: 2, dueDate: '2026-05-10' },
-    { deal: 'KeyBank · Digital Banking', task: 'Integration design review',          effort: 2, dueDate: '2026-05-13' },
-    { deal: 'KeyBank · Digital Banking', task: 'Requirements sign-off',              effort: 3, dueDate: '2026-04-25' },
+    { deal: 'KeyBank · Digital Banking',          task: 'POC milestone 1 delivery',         effort: 5, dueDate: '2026-05-06' },
+    { deal: 'KeyBank · Digital Banking',          task: 'Integration design review',        effort: 2, dueDate: '2026-05-13' },
+    { deal: 'KeyBank · Digital Banking',          task: 'Requirements sign-off',            effort: 3, dueDate: '2026-04-25' },
+    { deal: 'KeyBank · Agents Pilot',             task: 'Agents SDK scoping workshop',      effort: 3, dueDate: '2026-05-11' },
+    { deal: 'Citizens · SME Origination',         task: 'Stall recovery action plan',       effort: 2, dueDate: '2026-05-10' },
   ],
   'Skyler M.': [
-    { deal: 'Bank Zeta · Retail Digital Banking',task: 'RFP business alignment session',     effort: 4, dueDate: '2026-05-08' },
-    { deal: 'Bank Zeta · Retail Digital Banking',task: 'Capacity escalation meeting',        effort: 2, dueDate: '2026-05-13' },
-    { deal: 'Fifth Third · Wealth',      task: 'Initial qualifying call',            effort: 2, dueDate: '2026-05-15' },
-    { deal: 'Bank Zeta · Retail Digital Banking',task: 'Competitive research',               effort: 3, dueDate: '2026-04-20' },
+    { deal: 'Bank Zeta · Retail Digital Banking', task: 'RFP business alignment session',   effort: 4, dueDate: '2026-05-08' },
+    { deal: 'Bank Zeta · Retail Digital Banking', task: 'Capacity escalation meeting',      effort: 2, dueDate: '2026-05-13' },
+    { deal: 'Bank Zeta · Retail Digital Banking', task: 'Competitive research',             effort: 3, dueDate: '2026-04-20' },
+    { deal: 'Fifth Third · Wealth',               task: 'Initial qualifying call',          effort: 2, dueDate: '2026-05-15' },
   ],
   'Quinn B.': [
-    { deal: 'Huntington · SME Digital Banking',  task: 'RFP qualification workshop',         effort: 4, dueDate: '2026-05-09' },
-    { deal: 'Huntington · SME Digital Banking',  task: 'Technical assessment session',       effort: 3, dueDate: '2026-05-15' },
-    { deal: 'Huntington · SME Digital Banking',  task: 'Discovery call',                     effort: 2, dueDate: '2026-04-23' },
+    { deal: 'Regions Bank · Onboarding',          task: 'SME onboarding scope review',      effort: 2, dueDate: '2026-05-10' },
+    { deal: 'Huntington · SME Digital Banking',   task: 'RFP qualification workshop',       effort: 4, dueDate: '2026-05-09' },
+    { deal: 'Huntington · SME Digital Banking',   task: 'Technical assessment session',     effort: 3, dueDate: '2026-05-15' },
+    { deal: 'Huntington · SME Digital Banking',   task: 'Discovery call',                   effort: 2, dueDate: '2026-04-23' },
   ],
 };
 
@@ -2763,11 +2896,6 @@ function buildRdView(rdId) {
   const opDiv = document.createElement('div');
   opDiv.id = rdId + '-view-op';
 
-  // Team load + next actions
-  const twoCol = document.createElement('div');
-  twoCol.className = 'two-col';
-  twoCol.style.marginTop = '0';
-
   // Resolve region code and current headcount for this view
   const rdRegion = REGIONS.find(r => r.view === rdId);
   const rdCode   = rdRegion ? rdRegion.code : null;
@@ -2775,43 +2903,142 @@ function buildRdView(rdId) {
   const rdH = rdCode ? HEADCOUNT[rdCode] : { ae: 0, se: 0 };
   const rdQuota  = rdCode ? getQuota(rdCode) : d.quota;
 
-  // SE load panel
-  const sePanel = document.createElement('div');
-  sePanel.className = 'panel';
-  sePanel.innerHTML = `<div class="section-head">Team load <span class="hint">upcoming 14 days · Σ effort / ${CAPACITY_CEILING}</span></div>`;
-  d.ses.forEach(s => {
-    const { pct, cls, upcoming, total } = calcCapacity(s.name);
-    const barW = Math.min(pct, 100);
-    const taskTip = upcoming.length
-      ? upcoming.map(t => `${t.task} (${t.deal}, effort ${t.effort})`).join('\n')
-      : 'No tasks due in next 14 days';
-    sePanel.innerHTML += `
-      <div class="se-row" title="${taskTip}">
-        <div class="se-name">${s.name}</div>
-        <div class="se-track"><div class="se-fill ${cls}" style="width:${barW}%"></div></div>
-        <div class="se-pct" style="color:${cls==='hot'?'#A32D2D':cls==='warn'?'#B45309':'var(--color-text-secondary)'}">${pct}%</div>
-      </div>`;
-  });
+  // ARR responsibility panel (full-width)
+  const arrPanel = document.createElement('div');
+  arrPanel.className = 'panel';
+  (function buildArrMatrix() {
+    const regionSeNames = d.ses.map(s => s.name);
+    const dealsFlat = Object.values(d.deals).flat();
 
-  twoCol.appendChild(sePanel);
+    // Map deal name → { arr, status }
+    const dealArrMap = {};
+    dealsFlat.forEach(deal => {
+      if (deal.arr) dealArrMap[deal.name] = { arr: deal.arr, status: deal.status || 'back' };
+    });
 
-  // Next actions panel
-  const naPanel = document.createElement('div');
-  naPanel.className = 'panel';
-  naPanel.innerHTML = `<div class="section-head">Next actions <span class="hint">due this week</span></div><div class="next-list">`;
-  d.next.forEach(n => {
-    naPanel.innerHTML += `
-      <div class="next-item" onclick="toast('Opening: ${n.deal}')">
-        <span class="next-due ${n.cls}">${n.due}</span>
-        <div class="next-body">
-          <div class="next-action">${n.action}</div>
-          <div class="next-deal">${n.deal}</div>
-        </div>
-      </div>`;
-  });
-  naPanel.innerHTML += '</div>';
-  twoCol.appendChild(naPanel);
-  opDiv.appendChild(twoCol);
+    // Count region SEs per deal (for equal-split attribution)
+    const dealSeCount = {};
+    regionSeNames.forEach(seName => {
+      (TASK_DATA[seName] || []).forEach(t => {
+        dealSeCount[t.deal] = (dealSeCount[t.deal] || 0) + 1;
+      });
+    });
+
+    // Compute ARR per SE per stage + per-deal breakdown
+    const seArr   = {};
+    const seDeals = {}; // seName → [{ name, label, key, split, shared }]
+    regionSeNames.forEach(seName => {
+      seArr[seName]   = { commit: 0, best: 0, back: 0, total: 0 };
+      seDeals[seName] = [];
+      const seen = new Set();
+      (TASK_DATA[seName] || []).forEach(t => {
+        if (seen.has(t.deal)) return;
+        seen.add(t.deal);
+        const info = dealArrMap[t.deal];
+        if (!info) return;
+        const nSEs  = dealSeCount[t.deal] || 1;
+        const split = info.arr / nSEs;
+        const key   = info.status === 'commit' ? 'commit' : info.status === 'best' ? 'best' : 'back';
+        seArr[seName][key]  += split;
+        seArr[seName].total += split;
+        seDeals[seName].push({ name: t.deal, key, split, fullArr: info.arr, shared: nSEs > 1, nSEs });
+      });
+      // Sort deals within SE by split ARR descending
+      seDeals[seName].sort((a,b) => b.split - a.split);
+    });
+
+    // Region totals
+    const rt = { commit: 0, best: 0, back: 0, total: 0 };
+    regionSeNames.forEach(n => { ['commit','best','back','total'].forEach(k => rt[k] += seArr[n][k]); });
+
+    const arrHeat = v => v === 0 ? 'arr-h-0' : v < 0.5 ? 'arr-h-xs' : v < 1.0 ? 'arr-h-sm' : v < 2.0 ? 'arr-h-md' : 'arr-h-lg';
+    const fmt     = v => v === 0 ? '—' : `€${v.toFixed(1)}M`;
+    const stageLabel = { commit: 'Commit', best: 'Best Case', back: 'Pipeline' };
+    const stageCls   = { commit: 'arr-sp-commit', best: 'arr-sp-best', back: 'arr-sp-back' };
+
+    const avatarColors = ['#3B7DD8','#8B5CF6','#E67E22','#27AE60','#E91E8C','#00838F','#C0392B','#2980B9'];
+    const inits = name => name.split(/[\s.]+/).filter(Boolean).slice(0,2).map(p=>p[0].toUpperCase()).join('');
+    const sorted = [...regionSeNames].sort((a,b) => seArr[b].total - seArr[a].total);
+
+    let html = `<table class="arr-matrix">
+      <thead><tr>
+        <th class="arr-row-head">SE / SA · Opportunity</th>
+        <th>Commit</th>
+        <th>Best Case</th>
+        <th>Pipeline</th>
+        <th class="arr-total-col">Total</th>
+      </tr></thead><tbody>`;
+
+    sorted.forEach(seName => {
+      const origIdx  = regionSeNames.indexOf(seName);
+      const a        = seArr[seName];
+      const sharePct = rt.total > 0 ? (a.total / rt.total * 100) : 0;
+
+      // SE summary row
+      html += `<tr class="arr-se-row">
+        <td class="arr-row-head">
+          <div style="display:flex;align-items:center;gap:7px">
+            <div class="tl-col-avatar" style="background:${avatarColors[origIdx%avatarColors.length]};width:24px;height:24px;font-size:9px;flex-shrink:0">${inits(seName)}</div>
+            <div>
+              <div style="font-size:11px;font-weight:600;line-height:1.3">${seName}</div>
+              <div class="arr-pct-label">${sharePct.toFixed(0)}% of region · ${seDeals[seName].length} deal${seDeals[seName].length !== 1 ? 's' : ''}</div>
+            </div>
+          </div>
+        </td>
+        <td><span class="arr-cell ${arrHeat(a.commit)}">${fmt(a.commit)}</span></td>
+        <td><span class="arr-cell ${arrHeat(a.best)}">${fmt(a.best)}</span></td>
+        <td><span class="arr-cell ${arrHeat(a.back)}">${fmt(a.back)}</span></td>
+        <td class="arr-total-col">
+          <span class="arr-total-val ${arrHeat(a.total)}">${fmt(a.total)}</span>
+          <div class="arr-share-bar-wrap"><div class="arr-share-bar" style="width:${sharePct.toFixed(1)}%"></div></div>
+          <div class="arr-pct-label">${sharePct.toFixed(0)}%</div>
+        </td>
+      </tr>`;
+
+      // Deal sub-rows
+      seDeals[seName].forEach(dl => {
+        const sharedBadge = dl.shared
+          ? `<span class="arr-shared-badge">÷${dl.nSEs} SEs</span>` : '';
+        const dealLabel = dl.name.includes(' · ') ? dl.name.split(' · ').slice(1).join(' · ') : dl.name;
+        const acctLabel = dl.name.includes(' · ') ? dl.name.split(' · ')[0] : '';
+        const acctSpan  = acctLabel ? `<span style="font-weight:600;color:var(--color-text-primary)">${acctLabel}</span><span style="color:var(--color-text-tertiary)"> · </span>` : '';
+        const cCell = dl.key === 'commit' ? `<span class="arr-cell ${arrHeat(dl.split)}">${fmt(dl.split)}</span>` : '<span class="arr-cell arr-h-0">—</span>';
+        const bCell = dl.key === 'best'   ? `<span class="arr-cell ${arrHeat(dl.split)}">${fmt(dl.split)}</span>` : '<span class="arr-cell arr-h-0">—</span>';
+        const pCell = dl.key === 'back'   ? `<span class="arr-cell ${arrHeat(dl.split)}">${fmt(dl.split)}</span>` : '<span class="arr-cell arr-h-0">—</span>';
+        html += `<tr class="arr-deal-row">
+          <td class="arr-row-head arr-deal-name">
+            <span class="arr-deal-bullet">·</span>
+            ${acctSpan}<span>${dealLabel}</span>
+            <span class="arr-stage-pill ${stageCls[dl.key]}">${stageLabel[dl.key]}</span>
+            ${sharedBadge}
+          </td>
+          <td>${cCell}</td>
+          <td>${bCell}</td>
+          <td>${pCell}</td>
+          <td class="arr-total-col" style="color:var(--color-text-tertiary);font-size:10px">${dl.shared ? `€${dl.fullArr.toFixed(1)}M total` : ''}</td>
+        </tr>`;
+      });
+    });
+
+    html += `<tr class="arr-footer-row">
+      <td class="arr-row-head" style="font-size:10px;font-weight:700;color:var(--color-text-tertiary);letter-spacing:.03em">REGION TOTAL</td>
+      <td><span class="arr-cell ${arrHeat(rt.commit)}">${fmt(rt.commit)}</span></td>
+      <td><span class="arr-cell ${arrHeat(rt.best)}">${fmt(rt.best)}</span></td>
+      <td><span class="arr-cell ${arrHeat(rt.back)}">${fmt(rt.back)}</span></td>
+      <td class="arr-total-col"><span class="arr-total-val ${arrHeat(rt.total)}">${fmt(rt.total)}</span></td>
+    </tr></tbody></table>`;
+
+    const arrPanelId = rdId + '-arr-body';
+    arrPanel.innerHTML = `
+      <div class="section-head" style="cursor:pointer;user-select:none" onclick="(function(el){var b=document.getElementById('${arrPanelId}');var isOpen=b.style.display!=='none';b.style.display=isOpen?'none':'';el.querySelector('.arr-toggle').textContent=isOpen?'▶':'▼';})(this)">
+        ARR responsibility
+        <span class="hint">equal share on multi-SE deals · sorted by total</span>
+        <span class="arr-toggle" style="margin-left:auto;font-size:9px;color:var(--color-text-tertiary)">▼</span>
+      </div>
+      <div id="${arrPanelId}"><div class="arr-matrix-wrap">${html}</div></div>
+    `;
+  })();
+  opDiv.appendChild(arrPanel);
 
   // Pattern Health bar — compact filter strip
   const phDeals = Object.values(d.deals).flat();
@@ -3450,6 +3677,214 @@ function buildRdView(rdId) {
 
   histPanel.innerHTML = histHtml;
   resDiv.appendChild(histPanel);
+
+  // ── Team Load matrix ──
+  (function buildTeamLoad() {
+    const regionSeNames = d.ses.map(s => s.name);
+
+    // Aggregate effort: seName → dealName → total effort
+    const seEffortByDeal = {};
+    const seTotalEffort  = {};
+    const dealOrder      = new Map(); // preserves insertion order
+
+    regionSeNames.forEach(seName => {
+      seEffortByDeal[seName] = {};
+      seTotalEffort[seName]  = 0;
+      (TASK_DATA[seName] || []).forEach(t => {
+        if (!dealOrder.has(t.deal)) dealOrder.set(t.deal, t.deal);
+        seEffortByDeal[seName][t.deal] = (seEffortByDeal[seName][t.deal] || 0) + t.effort;
+        seTotalEffort[seName] += t.effort;
+      });
+    });
+
+    const tlDeals = [...dealOrder.keys()];
+    if (!tlDeals.length) return; // no task data for this region — skip
+
+    // Stress classification (relative to CAPACITY_CEILING)
+    const tlStress = total => {
+      const pct = total / CAPACITY_CEILING;
+      if (pct < 0.6)  return { key:'avail', label:'Available',  bar:'#4CAF50', pill:'tl-p-avail', col:'',          chip:'tl-sc-avail', fg:'#27500A' };
+      if (pct < 0.9)  return { key:'bal',   label:'Balanced',   bar:'#2E9C60', pill:'tl-p-bal',   col:'',          chip:'tl-sc-bal',   fg:'#1A6B3C' };
+      if (pct < 1.2)  return { key:'risk',  label:'At-risk',    bar:'#FFC107', pill:'tl-p-risk',  col:'tl-col-risk', chip:'tl-sc-risk', fg:'#7A5500' };
+      return               { key:'over',  label:'Overloaded', bar:'#F44336', pill:'tl-p-over',  col:'tl-col-over', chip:'tl-sc-over', fg:'#8B1C1C' };
+    };
+
+    const stresses     = regionSeNames.map(n => tlStress(seTotalEffort[n]));
+    const avatarColors = ['#3B7DD8','#8B5CF6','#E67E22','#27AE60','#E91E8C','#00838F','#C0392B','#2980B9'];
+    const inits        = name => name.split(/[\s.]+/).filter(Boolean).slice(0,2).map(p=>p[0].toUpperCase()).join('');
+    const heatCls      = e => {
+      if (e === 0) return 'tl-h-0';
+      if (e <= 3)  return 'tl-h-low';
+      if (e <= 6)  return 'tl-h-mid';
+      if (e <= 9)  return 'tl-h-high';
+      return 'tl-h-crit';
+    };
+
+    // Stress summary chips
+    let summaryHtml = '<div class="tl-stress-summary">';
+    ['avail','bal','risk','over'].forEach(zk => {
+      const people = regionSeNames.filter((_,i) => stresses[i].key === zk);
+      if (!people.length) return;
+      const chipCls = stresses[regionSeNames.indexOf(people[0])].chip;
+      summaryHtml += `<div class="tl-stress-chip ${chipCls}">
+        <div class="tl-dot"></div>
+        <strong>${stresses[regionSeNames.findIndex((_,i)=>stresses[i].key===zk)].label}</strong>
+        <span style="font-weight:400;opacity:.8"> — ${people.join(', ')}</span>
+        <span style="margin-left:3px;font-weight:700">(${people.length})</span>
+      </div>`;
+    });
+    summaryHtml += '</div>';
+
+    // Matrix header
+    let matHtml = '<thead><tr><th class="tl-row-head">Deal / Account</th>';
+    regionSeNames.forEach((seName, i) => {
+      const s    = stresses[i];
+      const tot  = seTotalEffort[seName];
+      const barW = Math.min(100, (tot / CAPACITY_CEILING) * 100).toFixed(1);
+      const bg   = s.key==='avail'?'#EBF5E0':s.key==='bal'?'#D6F0E4':s.key==='risk'?'#FFF3D0':'#FDEAEA';
+      matHtml += `<th class="${s.col}">
+        <div class="tl-col-head">
+          <div class="tl-col-avatar" style="background:${avatarColors[i%avatarColors.length]}">${inits(seName)}</div>
+          <div class="tl-col-name">${seName}</div>
+          <div class="tl-cap-bar-wrap"><div class="tl-cap-bar" style="width:${barW}%;background:${s.bar}"></div></div>
+          <div class="tl-stress-badge" style="background:${bg};color:${s.fg}">${s.label}</div>
+        </div>
+      </th>`;
+    });
+    matHtml += '<th class="tl-ses-col"># SEs</th></tr></thead>';
+
+    // Build SE confidence map: dealName → se score (from regional deal data)
+    const seConfMap = {};
+    allDealsFlat.forEach(deal => { seConfMap[deal.name] = deal.se; });
+
+    // Risk thresholds
+    const RISK_CONF_MAX   = 39;  // SE conf below this is "low"
+    const RISK_EFFORT_MIN = 4;   // total team effort at or above this is "high"
+
+    const seConfCls  = sc => sc === null ? 'sc-none' : sc >= 50 ? 'sc-good' : sc >= 35 ? 'sc-mid' : 'sc-low';
+    const seConfLabel= sc => sc === null ? '—' : `SE ${sc}%`;
+
+    // Pre-compute per-deal total effort across all SEs
+    const dealTotalEffort = {};
+    tlDeals.forEach(deal => {
+      dealTotalEffort[deal] = regionSeNames.reduce((s, n) => s + (seEffortByDeal[n][deal] || 0), 0);
+    });
+
+    // Identify risk deals
+    const riskDeals = tlDeals.filter(deal => {
+      const sc  = seConfMap[deal] ?? null;
+      const eff = dealTotalEffort[deal];
+      return sc !== null && sc <= RISK_CONF_MAX && eff >= RISK_EFFORT_MIN;
+    });
+
+    // Group deals by account (everything before ' · ')
+    const accountGroups = new Map(); // accountName → [dealName, ...]
+    tlDeals.forEach(deal => {
+      const acct = deal.includes(' · ') ? deal.split(' · ')[0] : deal;
+      if (!accountGroups.has(acct)) accountGroups.set(acct, []);
+      accountGroups.get(acct).push(deal);
+    });
+
+    // Matrix body — one account header row + deal sub-rows per group
+    matHtml += '<tbody>';
+    accountGroups.forEach((deals, acct) => {
+      // Account header row
+      const dealCountBadge = deals.length > 1
+        ? `<span class="tl-deal-count-badge">${deals.length} deals</span>` : '';
+      matHtml += `<tr class="tl-acct-row">
+        <td class="tl-row-head" colspan="${regionSeNames.length + 2}">
+          <span class="tl-acct-name">${acct}</span>${dealCountBadge}
+        </td>
+      </tr>`;
+
+      // Deal sub-rows
+      deals.forEach(deal => {
+        let seCount = 0;
+        const dealLabel = deal.includes(' · ') ? deal.split(' · ').slice(1).join(' · ') : deal;
+        const sc        = seConfMap[deal] ?? null;
+        const isRisk    = riskDeals.includes(deal);
+        const confBadge = `<span class="tl-se-conf ${seConfCls(sc)}" title="SE confidence score">${seConfLabel(sc)}</span>`;
+        const riskCls   = isRisk ? ' tl-risk-deal' : '';
+        matHtml += `<tr class="tl-deal-row${riskCls}"><td class="tl-row-head">
+          <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+            <span class="tl-deal-name-text">${dealLabel}</span>${confBadge}
+          </div>
+        </td>`;
+        regionSeNames.forEach((seName, i) => {
+          const e   = seEffortByDeal[seName][deal] || 0;
+          if (e > 0) seCount++;
+          const col = stresses[i].col;
+          const tip = e > 0 ? `${seName}: ${e} effort pts` : '—';
+          matHtml += `<td class="${col}" title="${tip}"><span class="tl-heat ${heatCls(e)}">${e > 0 ? e : '—'}</span></td>`;
+        });
+        const sesColor = seCount >= 2 ? '#1565C0' : 'var(--color-text-tertiary)';
+        const sesFw    = seCount >= 2 ? '700' : '400';
+        matHtml += `<td class="tl-ses-col" style="color:${sesColor};font-weight:${sesFw}">${seCount}</td></tr>`;
+      });
+    });
+
+    // Risk callout banner (rendered above matrix in panel)
+    let riskCalloutHtml = '';
+    if (riskDeals.length > 0) {
+      const items = riskDeals.map(deal => {
+        const sc  = seConfMap[deal];
+        const eff = dealTotalEffort[deal];
+        const lbl = deal.includes(' · ') ? deal.split(' · ').slice(1).join(' · ') : deal;
+        const acct = deal.includes(' · ') ? deal.split(' · ')[0] : '';
+        return `<span class="tl-risk-item">
+          <span style="font-size:9px">⚠</span>
+          <span style="font-weight:600">${acct}</span>
+          <span style="color:var(--color-text-secondary)">· ${lbl}</span>
+          <span class="tl-risk-item-conf">SE ${sc}%</span>
+          <span class="tl-risk-item-eff">${eff} pts effort</span>
+        </span>`;
+      }).join('');
+      riskCalloutHtml = `
+        <div class="tl-risk-callout">
+          <div class="tl-risk-callout-head">
+            ⚠ High effort · low confidence — ${riskDeals.length} deal${riskDeals.length > 1 ? 's' : ''} at risk
+            <span style="font-weight:400;color:#BF360C;font-size:10px;margin-left:4px">SE conf &lt; 40% with ≥ ${RISK_EFFORT_MIN} pts team effort</span>
+          </div>
+          <div class="tl-risk-callout-items">${items}</div>
+        </div>`;
+    }
+
+    // Footer row — totals
+    matHtml += '<tr class="tl-footer-row"><td class="tl-row-head" style="font-size:10px;font-weight:600;color:var(--color-text-secondary)">Total effort</td>';
+    regionSeNames.forEach((seName, i) => {
+      const s   = stresses[i];
+      const tot = seTotalEffort[seName];
+      matHtml += `<td class="${s.col}"><div class="tl-total-pill ${s.pill}">${tot}<div class="tl-pts-label">/ ${CAPACITY_CEILING} cap</div></div></td>`;
+    });
+    matHtml += '<td class="tl-ses-col"></td></tr>';
+
+    // Footer row — stress labels
+    matHtml += '<tr class="tl-stress-row"><td class="tl-row-head"></td>';
+    regionSeNames.forEach((_, i) => {
+      const s = stresses[i];
+      const icon = s.key==='risk' ? '⚠ ' : s.key==='over' ? '🔴 ' : '';
+      matHtml += `<td class="${s.col}" style="color:${s.fg}">${icon}${s.label}</td>`;
+    });
+    matHtml += '<td class="tl-ses-col"></td></tr></tbody>';
+
+    const tlPanel = document.createElement('div');
+    tlPanel.className = 'panel res-section';
+    tlPanel.innerHTML = `
+      <div class="section-head">Team Load
+        <span class="hint">effort pts logged in Salesforce · capacity ceiling ${CAPACITY_CEILING} pts · # SEs = deals shared across team members</span>
+      </div>
+      <div class="tl-cap-legend">
+        <div class="tl-cap-legend-item"><div class="tl-cap-legend-bar" style="background:#4CAF50"></div>Available (&lt; 60% cap)</div>
+        <div class="tl-cap-legend-item"><div class="tl-cap-legend-bar" style="background:#2E9C60"></div>Balanced (60–89%)</div>
+        <div class="tl-cap-legend-item"><div class="tl-cap-legend-bar" style="background:#FFC107"></div>At-risk (90–119%)</div>
+        <div class="tl-cap-legend-item"><div class="tl-cap-legend-bar" style="background:#F44336"></div>Overloaded (≥ 120%)</div>
+      </div>
+      ${summaryHtml}
+      ${riskCalloutHtml}
+      <div class="tl-matrix-wrap"><table class="tl-matrix">${matHtml}</table></div>
+    `;
+    resDiv.appendChild(tlPanel);
+  })();
 
   body.appendChild(resDiv);
   shellDiv.appendChild(body);
